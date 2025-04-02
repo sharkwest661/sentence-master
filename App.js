@@ -4,7 +4,6 @@ import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ThemeProvider } from "@shopify/restyle";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import * as Font from "expo-font";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import LightFont from "./assets/fonts/WorkSans-Light.ttf";
@@ -28,26 +27,26 @@ export default function App() {
     "WorkSans-SemiBold": SemiBoldFont,
   });
 
-  useEffect(() => {
-    async function prepare() {
-      try {
-        // Pre-load fonts, make any API calls you need to do here
-        await Font.loadAsync({
-          "WorkSans-Light": LightFont,
-          "WorkSans-Regular": RegularFont,
-          "WorkSans-Medium": MediumFont,
-          "WorkSans-SemiBold": SemiBoldFont,
-        });
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        // Tell the application to render
-        setAppIsReady(true);
-      }
-    }
+  // useEffect(() => {
+  //   async function prepare() {
+  //     try {
+  //       // Pre-load fonts, make any API calls you need to do here
+  //       await Font.loadAsync({
+  //         "WorkSans-Light": LightFont,
+  //         "WorkSans-Regular": RegularFont,
+  //         "WorkSans-Medium": MediumFont,
+  //         "WorkSans-SemiBold": SemiBoldFont,
+  //       });
+  //     } catch (e) {
+  //       console.warn(e);
+  //     } finally {
+  //       // Tell the application to render
+  //       setAppIsReady(true);
+  //     }
+  //   }
 
-    prepare();
-  }, []);
+  //   prepare();
+  // }, []);
 
   useEffect(() => {
     if (appIsReady && fontsLoaded) {
