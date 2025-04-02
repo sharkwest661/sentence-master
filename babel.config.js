@@ -2,9 +2,13 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ["babel-preset-expo"],
+    presets: [
+      "babel-preset-expo",
+      "@babel/preset-react", // Add this line to enable JSX transformation
+    ],
     plugins: [
-      "react-native-reanimated/plugin", // Keep reanimated plugin first if required by its docs
+      "react-native-reanimated/plugin",
+      "@babel/plugin-syntax-jsx", // Add this for JSX parsing
       [
         "module-resolver",
         {
@@ -15,8 +19,6 @@ module.exports = function (api) {
           },
         },
       ],
-      // Add the necessary class feature plugins (order might matter, often class-properties first)
-      // Ensure these match what's in your package.json devDependencies
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-transform-private-methods",
       "@babel/plugin-proposal-private-property-in-object",
